@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gesion Immobilier</title>
+    <style>
+      body {
+        height: 100%;
+        background-image: url("https://images.pexels.com/photos/1475938/pexels-photo-1475938.jpeg?auto=compress&cs=tinysrgb&w=1600");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: azure;
+      }
+      .doc_title {
+        text-align: center;
+        display: flex;
+        padding-left: 29%;
+        position: relative;
+        color: #0e3742;
+        text-transform: uppercase;
+        width: 100%;
+        -webkit-box-reflect: below 1px linear-gardient(transparent, #0008);
+        line-height: 0.7em;
+        outline: none;
+        animation: animate 20s linear infinite;
+      }
+      h3 {
+        text-align: center;
+        display: flex;
+        padding-left: 37%;
+        padding-top: 5%;
+        position: relative;
+        color: #df1811;
+        width: 100%;
+        -webkit-box-reflect: below 1px linear-gardient(transparent, #df1811);
+        outline: none;
+        animation: animate 2s linear infinite;
+      }
+
+      .container {
+        background-color: bisques;
+        text-align: center;
+        display: flex;
+        padding-top: 5%;
+        padding-left: 30%;
+      }
+      @keyframes animate {
+        0%,
+        18%,
+        20%,
+        50.1%,
+        60%,
+        65.1%,
+        80%,
+        90.1%,
+        92% {
+          color: #0e3742;
+          box-shadow: none;
+        }
+        18.1%,
+        20.1%,
+        30%,
+        50%,
+        60.1%,
+        65%,
+        80.1%,
+        90%,
+        92.1%,
+        100% {
+          color: #fff;
+          text-shadow: 0 0 10px #03bcf4, 0 0 20px #03bcf4, 0 0 40px #03bcf4,
+            0 0 80px #03bcf4, 0 0 160px #03bcf4;
+        }
+      }
+      td {
+        border: solid black 2px;
+      }
+      .vertical-menu {
+        width: 200px;
+        padding-left: 50%;
+      }
+
+      .vertical-menu a {
+        background-color: rgba(9, 179, 209, 0.158);
+        color: black;
+        display: block;
+        padding: 12px;
+        text-decoration: none;
+      }
+
+      .vertical-menu a:hover {
+        background-color: rgba(255, 255, 0, 0.438);
+      }
+
+      .vertical-menu a.active {
+        background-color: yellowgreen;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="doc_title">LISTE DES APPARTEMENTS POUR CHAQUE PROGRAMME</h1>
+    <h3>
+      Choisissez par un Click sur le nom de programme & Créer un appartement !
+    </h3>
+    <div class="vertical-menu">
+      <a href="/" class="active" style="color: blueviolet; text-align: center"
+        >Menu QuerySets</a
+      >
+      <a href="{% url 'list_appart_active' %}">Appartement Progs Actifs</a>
+      <a href="{% url 'list_appart_prix' %}">Appartements Prix 100k-180k €</a>
+      <a href="{% url 'list_prog_piscine' %}"
+        >Programmes Appartement avec Piscine</a
+      >
+      <a href="{% url 'promo_appart' promo_code='PERE NOEL' %}"
+        >Appartement Promo Code: PERE NOEL</a
+      >
+      <a href="{% url 'appartements' %}">Saison d'Appartements:</a>
+      <input type="date" name="saison" placeholder="Entre la date" />
+      <button>Entrez la date</button>
+    </div>
+    <div class="container">
+      <table></table>
+      <table style="border: solid">
+        <tr>
+          <th>| NOM DU PROGRAMME |</th>
+          <th>| ID APPARTEMENT |</th>
+          <th>| SURFACE |</th>
+          <th>| NOMBRE DE PIÈCES|</th>
+          <th>| PRIX |</th>
+          <th>| CARACTÉRISTIQUES |</th>
+        </tr>
+        {% for i in data %}
+
+        <tr>
+          <td>
+            <a href="{% url 'creation_appartement' f_k=i.program  %}"
+              >{{i.program}}</a
+            >
+          </td>
+          <td>{{i.id}}</td>
+          <td>{{i.surface}} M<sup>2</sup></td>
+          <td>{{i.nombre_piece}}</td>
+          <td>{{i.prix}} €</td>
+          <td>{{i.list_caracteristiques}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

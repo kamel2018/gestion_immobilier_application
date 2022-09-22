@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programmes Avec Piscine</title>
+    <style>
+      .container {
+        background-color: bisques;
+        text-align: center;
+        display: flex;
+        padding-top: 5%;
+        padding-left: 43%;
+      }
+      img {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        display: flex;
+        padding-left: 49%;
+        padding-top: 2%;
+        max-width: 100%;
+        width: 5%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/">
+      <img
+        src="https://thumbs.dreamstime.com/b/back-glassy-green-round-button-isolated-abstract-illustration-97910012.jpg"
+        alt=""
+      />
+    </a>
+    <div class="container">
+      <table style="border: solid">
+        <tr>
+          <th>| NOM DU PROGRAMME |</th>
+          <th>| IS_ACTIVE |</th>
+        </tr>
+        {% for query in progs_avec_piscine %}
+  
+  
+        <tr>
+          <td>{{query.nom_prog}}</td>
+          <td> {{query.is_active}}</td>
+          <td>{{query_prix.nombre_piece}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+    
+    
+    
+</html>

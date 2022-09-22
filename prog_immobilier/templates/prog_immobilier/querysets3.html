@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appartement PERE NOEL</title>
+    <style>
+      .container {
+        background-color: bisques;
+        text-align: center;
+        display: flex;
+        padding-top: 5%;
+        padding-left: 30%;
+      }
+      img {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        display: flex;
+        padding-left: 49%;
+        padding-top: 2%;
+        max-width: 100%;
+        width: 5%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/">
+      <img
+        src="https://thumbs.dreamstime.com/b/back-glassy-green-round-button-isolated-abstract-illustration-97910012.jpg"
+        alt=""
+      />
+    </a>
+    <div class="container">
+      <table style="border: solid">
+        <tr>
+          <th>| NOM DU PROGRAMME |</th>
+          <th>| SURFACE |</th>
+          <th>| NOMBRE DE PIÈCES|</th>
+          <th>| PRIX |</th>
+          <th>| CARACTÉRISTIQUES |</th>
+        </tr>
+        {% for query in promo_code_queryset %}
+  
+  
+        <tr>
+          <td>{{query.program}}</td>
+          <td> {{query.surface}} M<sup>2</sup></td>
+          <td>{{query.nombre_piece}}</td>
+          <td>{{query.prix}} €</td>
+          <td>{{query.list_caracteristiques}}</td>
+        </tr>
+        {%endfor%}
+      </table>
+    </div>
+    
+    
+    
+</html>

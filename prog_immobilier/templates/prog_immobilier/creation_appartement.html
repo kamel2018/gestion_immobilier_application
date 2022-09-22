@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creation Appartement</title>
+    <style>
+      body {
+        height: 100%;
+        background-image: url("https://images.pexels.com/photos/1475938/pexels-photo-1475938.jpeg?auto=compress&cs=tinysrgb&w=1600");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: azure;
+      }
+      td,
+      tr,
+      th {
+        border: solid black 2px;
+      }
+
+      .container {
+        background-color: bisques;
+        text-align: center;
+        display: flex;
+        padding-top: 2%;
+        padding-left: 40%;
+      }
+      form {
+        background: yellowgreen;
+        margin: 50px 50px;
+        max-width: 97%;
+        opacity: 1;
+        border-radius: 4px;
+      }
+      img {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        display: flex;
+        padding-left: 49%;
+        padding-top: 2%;
+        max-width: 100%;
+        width: 5%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/">
+      <img
+        src="https://thumbs.dreamstime.com/b/back-glassy-green-round-button-isolated-abstract-illustration-97910012.jpg"
+        alt=""
+      />
+    </a>
+    <div class="container">
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <table border="2">
+          <tr>
+            <td>Surface</td>
+            <td>
+              <input
+                type="text"
+                placeholder="Surface en mètre carré"
+                ,
+                name="surface"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Prix</td>
+            <td>
+              <input
+                type="nombre"
+                step="0.01"
+                placeholder="Prix en €"
+                name="prix"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Nombre de pièce</td>
+            <td>
+              <input
+                type="nombre"
+                placeholder="Nombre de pièce"
+                name="nombre_piece"
+                required
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Charactéristiques:</td>
+            <td>
+              <input
+                type="checkbox"
+                id="Proche station ski"
+                name="Proche station ski"
+                value="Proche station ski"
+              />
+              <label for="Proche station ski"> Proche station ski</label><br />
+              <input
+                type="checkbox"
+                id="Piscine"
+                name="Piscine"
+                value="Piscine"
+              />
+              <label for="Piscine"> Piscine</label><br />
+              <input type="checkbox" id="Jardin" name="Jardin" value="Jardin" />
+              <label for="Jardin"> Jardin</label><br />
+              <input type="checkbox" id="Cave" name="Cave" value="Cave" />
+              <label for="Cave"> Cave</label><br />
+              <input
+                type="checkbox"
+                id="Parking"
+                name="Parking"
+                value="Parking"
+              />
+              <label for="Parking"> Parking</label><br />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="submit"
+                value="Creer un appartement"
+                onclick="return alert ('Appartement Creé Avec Succès')"
+              />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>
